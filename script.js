@@ -9,6 +9,19 @@ const questions = [
   "Are you smiling right now? 😊",
 ];
 
+const images = [
+  //"assets/NM.jpeg",
+  "assets/p1.jpeg",
+  "assets/p2.jpeg",
+  "assets/p3.jpeg",
+];
+
+const imagePositions = [
+  "center 10%", // p1 – more top
+  "center 25%", // p2
+  "center 10%", // p3
+];
+
 function playMusic() {
   if (!musicStarted) {
     document.getElementById("bgMusic").play();
@@ -24,13 +37,21 @@ function next(answer) {
   const questionElement = document.getElementById("question");
 
   if (index < questions.length) {
+    changeBackground(images[index-1]);
     questionElement.innerText = questions[index];
   } else {
     document.getElementById("options").style.display = "none";
     questionElement.innerText = "";
     document.getElementById("nicknameBox").style.display = "block";
+
   }
 }
+
+function changeBackground(imagePath) {
+  document.body.style.background = `url("${imagePath}") no-repeat center center / cover`;
+  document.body.style.backgroundPosition = "center 20%";
+}
+
 
 function saveNickname() {
   nickname = document.getElementById("nickname").value || "My Love";

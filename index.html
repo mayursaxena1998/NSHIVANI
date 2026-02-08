@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>For You ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="hearts"></div>
+
+    <div class="card">
+      <h2 id="title">Hey Fianse 💕</h2>
+
+      <p id="question">Do you like surprises? 😏</p>
+
+      <div id="options">
+        <button onclick="next('Yes')">Yes</button>
+        <button onclick="next('No')">No</button>
+      </div>
+
+      <div id="nicknameBox" style="display: none">
+        <p>What should I call you with love? 💖</p>
+        <input type="text" id="nickname" placeholder="Your love name" />
+        <button onclick="saveNickname()">Next 💌</button>
+      </div>
+
+      <div id="final" style="display: none">
+        <p id="finalText">Will you be my Valentine? 💝</p>
+        <button onclick="submitAnswer('YES ❤️')">Yes</button>
+        <button id="noBtn">No</button>
+      </div>
+    </div>
+
+    <!-- Success screen -->
+    <div id="success" style="display: none">
+      <h2>💖 Yayyyyy 💖</h2>
+      <p id="successMsg"></p>
+    </div>
+
+    <!-- Hidden form -->
+    <form id="form" style="display: none">
+      <input type="hidden" name="responses" id="responses" />
+    </form>
+
+    <audio id="bgMusic" loop>
+      <source src="assets/HTPM.mpeg" type="audio/mpeg" />
+    </audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

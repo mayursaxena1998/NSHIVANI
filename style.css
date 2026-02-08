@@ -1,0 +1,149 @@
+body {
+  background: url("assets/NM.jpeg") no-repeat center center/cover;
+  background-position: center 20%;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  padding: 30px;
+  border-radius: 22px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h2 {
+  color: #ff4d6d;
+}
+
+p {
+  font-size: 16px;
+}
+
+button {
+  margin: 10px;
+  padding: 12px 24px;
+  border-radius: 25px;
+  border: none;
+  background: linear-gradient(45deg, #ff4d6d, #ff758f);
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(255, 77, 109, 0.6);
+}
+
+input {
+  padding: 10px;
+  width: 80%;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+}
+
+#success {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 25px;
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+
+#success h2 {
+  color: #ff4d6d;
+}
+
+/* Floating hearts */
+.hearts::before {
+  content: "💖 💕 💘 💝 💗 💞";
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  animation: float 10s linear infinite;
+  font-size: 24px;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh);
+  }
+  100% {
+    transform: translateY(-100vh);
+  }
+}
+
+#song-lines-container {
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none; /* click-through */
+  z-index: 2; /* above hearts but below card if needed */
+}
+
+.song-line {
+  font-size: 18px;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 1px 1px 5px #ff4d6d;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideFade 1s forwards;
+}
+
+/* Animate lines one by one with delay */
+.song-line:nth-child(1) {
+  animation-delay: 0.5s;
+}
+.song-line:nth-child(2) {
+  animation-delay: 2s;
+}
+.song-line:nth-child(3) {
+  animation-delay: 3.5s;
+}
+.song-line:nth-child(4) {
+  animation-delay: 5s;
+}
+
+@keyframes slideFade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+}
